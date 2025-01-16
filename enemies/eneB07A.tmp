@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=3 uid="uid://cfeeljnnlp0ub"]
+
+[ext_resource type="Script" path="res://enemies/enemy_crab.gd" id="1_8fmnt"]
+[ext_resource type="Texture2D" uid="uid://br7w07xaem38f" path="res://enemies/crab-idle.png" id="1_li5qb"]
+[ext_resource type="Texture2D" uid="uid://cx1k8gf05u0a7" path="res://enemies/crab-walk.png" id="2_5fg4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_winmj"]
+atlas = ExtResource("1_li5qb")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxfvn"]
+atlas = ExtResource("1_li5qb")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d341t"]
+atlas = ExtResource("1_li5qb")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyyil"]
+atlas = ExtResource("1_li5qb")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hysy"]
+atlas = ExtResource("2_5fg4v")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ssm0"]
+atlas = ExtResource("2_5fg4v")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg37b"]
+atlas = ExtResource("2_5fg4v")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su8x3"]
+atlas = ExtResource("2_5fg4v")
+region = Rect2(144, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgmpp"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_winmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxfvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d341t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyyil")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hysy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ssm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cg37b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su8x3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vquom"]
+radius = 13.0384
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_urjaf"]
+radius = 15.0
+
+[node name="EnemyCrab" type="CharacterBody2D"]
+script = ExtResource("1_8fmnt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_jgmpp")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_vquom")
+debug_color = Color(0.719257, 0.250895, 1, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0, -13)
+shape = SubResource("CircleShape2D_urjaf")
+debug_color = Color(0.984559, 0, 0.342395, 0.42)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
