@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://t7uf64msklhq"]
+[gd_scene load_steps=17 format=4 uid="uid://t7uf64msklhq"]
 
 [ext_resource type="Texture2D" uid="uid://bctdi52nxv2y" path="res://tilesets/game_tilesets_1.png" id="1_lugxv"]
 [ext_resource type="PackedScene" uid="uid://dgih8xgbgyeit" path="res://player/player.tscn" id="2_qhfue"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/playercamera_2d.gd" id="6_x028c"]
 [ext_resource type="PackedScene" uid="uid://qnihps6gpsh4" path="res://enemies/Dino/enemy_dino.tscn" id="7_q7yqd"]
 [ext_resource type="PackedScene" uid="uid://ckmlqosjlnah7" path="res://gamescreen.tscn" id="8_slci2"]
+[ext_resource type="PackedScene" uid="uid://bo7pcd5k13y8v" path="res://pickups/health_pickup/healthpickup.tscn" id="10_f02na"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o350r"]
 texture = ExtResource("1_lugxv")
@@ -482,7 +483,18 @@ position = Vector2(-214, 12)
 [node name="Point2" type="Marker2D" parent="enemies/EnemyCrab2/PatrolPoints"]
 position = Vector2(-64, 6)
 
-[node name="EnemyDino" parent="." instance=ExtResource("7_q7yqd")]
+[node name="EnemyDino" parent="enemies" instance=ExtResource("7_q7yqd")]
 position = Vector2(400, -163)
 
 [node name="Gamescreen" parent="." instance=ExtResource("8_slci2")]
+
+[node name="pickups" type="Node" parent="."]
+
+[node name="Healthpickup" parent="pickups" instance=ExtResource("10_f02na")]
+position = Vector2(166, -148)
+
+[node name="Healthpickup2" parent="pickups" instance=ExtResource("10_f02na")]
+position = Vector2(301, -149)
+
+[node name="Healthpickup3" parent="pickups" instance=ExtResource("10_f02na")]
+position = Vector2(558, -151)

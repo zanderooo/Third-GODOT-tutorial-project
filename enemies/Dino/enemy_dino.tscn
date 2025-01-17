@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://qnihps6gpsh4"]
+[gd_scene load_steps=24 format=3 uid="uid://qnihps6gpsh4"]
 
 [ext_resource type="Texture2D" uid="uid://h6f8qg7fbi3w" path="res://enemies/Dino/dino.png" id="1_2egty"]
+[ext_resource type="Script" path="res://enemies/Dino/enemy_dino.gd" id="1_6hh75"]
 [ext_resource type="Texture2D" uid="uid://t2jw1hoqempm" path="res://enemies/Dino/dino-idle.png" id="2_v8dye"]
 [ext_resource type="Script" path="res://enemies/Dino/gravity.gd" id="3_3ahhd"]
 [ext_resource type="Script" path="res://scripts/state_machine/node_finite_state_machine.gd" id="4_o8dm6"]
@@ -108,8 +109,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yslyx"]
 radius = 71.0
 
-[node name="EnemyDino" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2g7c"]
+radius = 13.3333
+
+[node name="EnemyDino" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
+script = ExtResource("1_6hh75")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -158,5 +163,16 @@ position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_yslyx")
 debug_color = Color(0.415997, 0.235625, 1.44392e-07, 0.42)
 
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0, -15)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CircleShape2D_w2g7c")
+debug_color = Color(0.984559, 0, 0.342395, 0.42)
+
 [connection signal="body_entered" from="attackarea" to="statemachinecontroller" method="_on_attackarea_body_entered"]
 [connection signal="body_exited" from="attackarea" to="statemachinecontroller" method="_on_attackarea_body_exited"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
