@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://t7uf64msklhq"]
+[gd_scene load_steps=18 format=4 uid="uid://t7uf64msklhq"]
 
 [ext_resource type="Texture2D" uid="uid://bctdi52nxv2y" path="res://tilesets/game_tilesets_1.png" id="1_lugxv"]
 [ext_resource type="PackedScene" uid="uid://dgih8xgbgyeit" path="res://player/player.tscn" id="2_qhfue"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/playercamera_2d.gd" id="6_x028c"]
 [ext_resource type="PackedScene" uid="uid://qnihps6gpsh4" path="res://enemies/Dino/enemy_dino.tscn" id="7_q7yqd"]
 [ext_resource type="PackedScene" uid="uid://ckmlqosjlnah7" path="res://gamescreen.tscn" id="8_slci2"]
+[ext_resource type="PackedScene" uid="uid://cmeutkn7c8n51" path="res://collectibles/blue_coin/BlueCoin.tscn" id="10_47c4e"]
 [ext_resource type="PackedScene" uid="uid://bo7pcd5k13y8v" path="res://pickups/health_pickup/healthpickup.tscn" id="10_f02na"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o350r"]
@@ -487,6 +488,17 @@ position = Vector2(-64, 6)
 position = Vector2(400, -163)
 
 [node name="Gamescreen" parent="." instance=ExtResource("8_slci2")]
+
+[node name="collectibles" type="Node" parent="."]
+
+[node name="BlueCoin" parent="collectibles" instance=ExtResource("10_47c4e")]
+position = Vector2(264, -47)
+
+[node name="BlueCoin2" parent="collectibles" instance=ExtResource("10_47c4e")]
+position = Vector2(203, -46)
+
+[node name="BlueCoin3" parent="collectibles" instance=ExtResource("10_47c4e")]
+position = Vector2(138, -45)
 
 [node name="pickups" type="Node" parent="."]
 
