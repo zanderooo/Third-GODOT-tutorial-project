@@ -8,3 +8,7 @@ func _ready() -> void:
 	
 func on_collectible_award_received(total_award):
 	label.text = str(total_award)
+
+
+func _on_pause_button_pressed() -> void:
+	GameManager.pause_game()

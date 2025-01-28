@@ -1,0 +1,59 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c6jypj4gxekei"]
+
+[ext_resource type="FontFile" uid="uid://ccmw4i3aifkwb" path="res://UI/Theme/GravityRegular5.ttf" id="1_ate8o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t0d15"]
+bg_color = Color(0.368627, 0.207843, 0.580392, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.282353, 0.121569, 0.462745, 1)
+border_blend = true
+expand_margin_left = 10.0
+expand_margin_top = 4.0
+expand_margin_right = 10.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rc5c"]
+bg_color = Color(0.427451, 0.352941, 0.85098, 0.8)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.282353, 0.121569, 0.462745, 1)
+border_blend = true
+expand_margin_left = 10.0
+expand_margin_top = 4.0
+expand_margin_right = 10.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uk31p"]
+bg_color = Color(0.541176, 0.556863, 0.858824, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.282353, 0.121569, 0.462745, 1)
+border_blend = true
+expand_margin_left = 10.0
+expand_margin_top = 4.0
+expand_margin_right = 10.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryavj"]
+bg_color = Color(0.615686, 0.196078, 0.894118, 0.513726)
+
+[resource]
+default_font_size = 60
+Button/constants/outline_size = 10
+Button/font_sizes/font_size = 44
+Button/fonts/font = ExtResource("1_ate8o")
+Button/styles/hover = SubResource("StyleBoxFlat_t0d15")
+Button/styles/normal = SubResource("StyleBoxFlat_8rc5c")
+Button/styles/pressed = SubResource("StyleBoxFlat_uk31p")
+MarginContainer/constants/margin_bottom = 20
+MarginContainer/constants/margin_left = 40
+MarginContainer/constants/margin_right = 40
+MarginContainer/constants/margin_top = 20
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ryavj")
