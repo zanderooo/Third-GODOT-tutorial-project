@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c6jypj4gxekei"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c6jypj4gxekei"]
 
 [ext_resource type="FontFile" uid="uid://ccmw4i3aifkwb" path="res://UI/Theme/GravityRegular5.ttf" id="1_ate8o"]
 
@@ -44,6 +44,14 @@ expand_margin_bottom = 4.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryavj"]
 bg_color = Color(0.615686, 0.196078, 0.894118, 0.513726)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hohw"]
+bg_color = Color(0.415686, 0.305882, 0.792157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.376471, 0.117647, 0.54902, 1)
+
 [resource]
 default_font_size = 60
 Button/constants/outline_size = 10
@@ -57,3 +65,4 @@ MarginContainer/constants/margin_left = 40
 MarginContainer/constants/margin_right = 40
 MarginContainer/constants/margin_top = 20
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ryavj")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_0hohw")
